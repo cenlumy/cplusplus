@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+#include <string>
+class Person{
+	string name;
+	bool gender;
+	int age;
+    Person* lover;
+public:
+	Person(const char* n="noone", bool g=true);
+	void growup(int  years);
+	void show();
+};
+Person::Person(const char* n/*=noone*/, bool g/*=true*/)
+{	name = n;
+	gender= g;
+	age = 0;
+	lover = NULL;
+}
+void Person::growup(int years)
+{ 
+	age += years;
+}
+void Person::show()
+{
+	cout << " hello everyone i am " << (gender?"handsomeboy":"prostitute") << name <<"  " << age << " years old " << endl;
+}
+
+
+int main()
+{
+	Person a("chenlumin",true);//出生的时候年龄是默认值不需要传递参数。
+	Person b("lihuan",false);
+	Person d;
+	Person e();
+	a.growup(20);
+	b.growup(20);
+	a.show();
+	b.show();
+	Person c("lihuan");
+	c.growup(5);
+	c.show();
+	d.growup(25);
+	d.show();
+	e().show();
+}
+Person e()
+{
+	 string name ;
+	 bool gender;
+	 int age;
+	 cout << "enter name and gender and age:";
+	 cin >> name >> gender >> age;
+	 Person input(name.c_str(),gender);
+	 input.growup(age);
+	 return input;
+}
