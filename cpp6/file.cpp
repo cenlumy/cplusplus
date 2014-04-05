@@ -6,10 +6,10 @@ using namespace std;
 int main()
 {
 	string path = "file";
-	ifstream fin(path.c_str());
+	ifstream fi(path.c_str());
 	ofstream fout("filecopy");
 	/* ifsteam fin; fin.open(path.c_str());*/
-	if(!fin){
+	if(!fi){
 		cout << "open the file " << path << "fail" << endl;
 		return 1;
 	}
@@ -18,12 +18,12 @@ int main()
 		return 2;
 	}
 	char ch;
-	while(fin.get(ch)){//用while（fin >> ch) 会跳过所有空白字符
+	while(fi.get(ch)){//用while（fin >> ch) 会跳过所有空白字符
 		cout << ch; fout << ch;
 	}
 	//while{fin.get(ch));fout<<ch;}这样复制最后会多一个字符
-	fin.clear();
-	fin.close();
+	fi.clear();
+	fi.close();
 	fout.close();
 	return 0;
 }
